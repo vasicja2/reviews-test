@@ -275,5 +275,12 @@ public class View {
     		
     		return new ModelAndView(model, "TEXfiles/template.tex");
     	}, new VelocityTemplateEngine());
+		
+	get("/aehlke-tag-it/css/jquery.tagit.css", (request, response) -> {		
+    		Map<String, Object> model = new HashMap<String, Object>();
+		
+		return new ModelAndView(model, "/aehlke-tag-it/css/jquery.tagit.css");
+    	}, new VelocityTemplateEngine());
+		
 	}
 }
