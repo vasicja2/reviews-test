@@ -4,6 +4,24 @@
   <artifactId>reviewsFirst</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>reviewsFirst</name>
+	
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.0.2</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>com.limetray.helper.App</mainClass>
+                    </manifest>
+                </archive>
+		<jdkVersion>1.8</jdkVersion>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
   
   <dependencies>
 	    <dependency>
