@@ -15,11 +15,12 @@ import spark.template.velocity.VelocityTemplateEngine;
 
 public class View {
 	private static final String layout = "templates/layout.vtl";
-	port(Integer.valueOf(System.getenv("PORT")));
+	
 	
 	public void run() {
 		org.apache.log4j.BasicConfigurator.configure();
 		staticFiles.location("/");
+		port(Integer.valueOf(System.getenv("PORT")));
 		
 		/**
 		 * Step 1 - select review type and title.
