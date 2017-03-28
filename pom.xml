@@ -12,6 +12,14 @@
 		<configuration>
 		    <source>1.8</source>
 		    <target>1.8</target>
+		    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>reviewsFirst.App</mainClass>                                
+                        </manifest>
+                    </archive>	
 		</configuration>
     	</plugin>
 	<plugin>
