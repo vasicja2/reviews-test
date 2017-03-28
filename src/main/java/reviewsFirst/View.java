@@ -20,6 +20,7 @@ public class View {
 	public void run() {
 		org.apache.log4j.BasicConfigurator.configure();
 		staticFiles.location("/");
+		staticFileLocation("/");
 		port(Integer.valueOf(System.getenv("PORT")));
 		
 		/**
