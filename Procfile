@@ -1,1 +1,1 @@
-web: mvn exec:java
+web: java reviewsFirst-0.0.1-SNAPSHOT.jar
