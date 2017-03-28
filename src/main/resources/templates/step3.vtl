@@ -1,0 +1,84 @@
+#if (!$paragraphs.isEmpty())
+	<form action="/review">
+	<h1>$title</h1>
+		#foreach ($paragraph in $paragraphs)
+			<div class="row" style="border-top:1px solid">
+				<h3>$paragraph.getTitle()</h3>
+				<div class="row">
+				#foreach ($eval in $paragraph.getOptions().entrySet())
+				<div class="col col-sm-4">
+				
+					#if($eval.getValue().isFourMarks())
+						<br>
+						<p>$eval.getKey()</p>
+						<div>
+							<label class="form-check-label">
+							    <input class="form-check-input" type="radio" name="$paragraph.getId()$eval.getKey().charAt(0)" id="markRadios" value="100" checked>
+							    Agree
+						    </label>
+					    </div>
+					    <div>
+							<label class="form-check-label">
+							    <input class="form-check-input" type="radio" name="$paragraph.getId()$eval.getKey().charAt(0)" id="markRadios" value="66">
+							    Agree with objections
+						    </label>
+					    </div>
+					    <div>
+							<label class="form-check-label">
+							    <input class="form-check-input" type="radio" name="$paragraph.getId()$eval.getKey().charAt(0)" id="markRadios" value="33">
+							    Disagree 
+						    </label>
+					    </div>
+					    <div>
+							<label class="form-check-label">
+							    <input class="form-check-input" type="radio" name="$paragraph.getId()$eval.getKey().charAt(0)" id="markRadios" value="0">
+							    Strongly disagree
+						    </label>
+					    </div>
+					#else
+					
+					#if($eval.getValue().isYesNo())
+						<br>
+						<br>
+						<p>$eval.getKey()</p>
+						<div>
+							<label class="form-check-label">
+							    <input class="form-check-input" type="radio" name="$paragraph.getId()$eval.getKey().charAt(0)" id="markRadios" value="100" checked>
+							    Yes
+						    </label>
+					    </div>
+					    <div>
+							<label class="form-check-label">
+							    <input class="form-check-input" type="radio" name="$paragraph.getId()$eval.getKey().charAt(0)" id="markRadios" value="0">
+							    No
+						    </label>
+					    </div>
+					#else
+					
+					#if($eval.getValue().isZeroToHundred())
+						<br>
+						<p>$eval.getKey()</p>
+						<p>Rate on the scale from 0 to 100:</p>
+						<br>
+						<div>
+					        <input class="$paragraph.getId()-slider" name="$paragraph.getId()$eval.getKey().charAt(0)" value="50" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+					    </div>    
+					#else
+						<br>
+						<br>
+						<p>No evaluation scale.</p>
+					#end
+					#end
+					#end
+				</div>
+				#end	
+			</div>	
+			</div>
+		#end
+		<br>
+		<button class="btn btn-primary" type="submit">Submit</button>
+	</form>	
+#else	
+	<p>It seems that you haven't chosen any paragraphs. Please go back and choose some.</p>
+#end
+	

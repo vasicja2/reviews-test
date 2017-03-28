@@ -1,0 +1,14 @@
+<h1>$title</h1>
+<h4>$type reviewed by $reviewer</h4>
+#foreach ($paragraph in $paragraphs)
+<div class="row">
+	<div class="col col-lg-7">
+		<h3>$paragraph.getTitle()</h3>
+		<p>$paragraph.getText()</p>
+	</div>	
+</div>
+#end
+<form action="/review" method="POST">
+<button type="submit" class="btn btn-primary">Back</button>
+</form>
+<a target="_blank" href="/review.tex" download>Download as a TeX file</a>

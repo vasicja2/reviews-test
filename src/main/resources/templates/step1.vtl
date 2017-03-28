@@ -1,0 +1,14 @@
+<form action="/paragraphs">
+	<label for="reviewTitle">Title:</label>
+	<input type="text" class="form-control" id="reviewTitle" name="title">
+	<label for="typeSelect">Type:</label>
+    <select class="form-control" name="type" id="typeSelect">
+    #foreach ($option in $options)
+    	<option>$option.getName()</option>
+	#end
+	</select>
+	<label for="reviewer">Reviewer:</label>
+	<input type="text" class="form-control" id="reviewer" name="reviewer">
+	<br>	
+    <button type="submit" class="btn btn-primary">Next</button>
+</form>
