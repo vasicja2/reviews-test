@@ -23,10 +23,22 @@ public class View {
 	private static final String headScript = "scripts/head.js";
 	private static final String headStyle = "styles/head.css";
 	
+	/**
+	 * Source: https://sparktutorials.github.io/2015/08/24/spark-heroku.html
+	 * @return
+	 */
+	static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+	
 	public void run() {
 		org.apache.log4j.BasicConfigurator.configure();
 		staticFiles.location("/");
-		port(processBuilder.environment().get("PORT"));
+        port(getHerokuAssignedPort());
 		
 		homepage();
 		step1();
