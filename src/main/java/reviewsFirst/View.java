@@ -177,7 +177,8 @@ public class View {
     	get("/step1-keywords.js", (request, response) -> {
     		Map<String, Object> model = new HashMap<String, Object>();
     		model.put("kwtypes", KeywordType.values());
-    		
+
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step1-keywords.js");
     	}, new VelocityTemplateEngine());
     	
@@ -238,7 +239,8 @@ public class View {
     		Map<String, Object> model = new HashMap<String, Object>();
     		Controller ctl = request.session().attribute("ctl");
     		model.put("paragraphs", ctl.getUsedParagraphs());
-    		
+
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step2-questions.js");
     	}, new VelocityTemplateEngine());
     	
@@ -298,7 +300,8 @@ public class View {
     		Map<String, Object> model = new HashMap<String, Object>();
     		Controller ctl = request.session().attribute("ctl");
     		model.put("paragraphs", ctl.getUsedParagraphs());
-    		
+
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step3.js");
     	}, new VelocityTemplateEngine());
     	
@@ -309,7 +312,8 @@ public class View {
     		Map<String, Object> model = new HashMap<String, Object>();
     		Controller ctl = request.session().attribute("ctl");
     		model.put("paragraphs", ctl.getUsedParagraphs());
-    		
+
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step3-sentences.js");
     	}, new VelocityTemplateEngine());
     	
@@ -322,7 +326,8 @@ public class View {
     		model.put("paragraphs", ctl.getUsedParagraphs());
     		model.put("keywords", ctl.getUsedKeywords());
     		model.put("kwtypes", KeywordType.values());
-    		
+
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step3-keywords.js");
     	}, new VelocityTemplateEngine());
     	
@@ -334,7 +339,8 @@ public class View {
     		//Controller ctl = request.session().attribute("ctl");
     		Map<Paragraph, ArrayList<SentenceCluster>> recommended = request.session().attribute("recommended");
     		model.put("recommended", recommended);
-    		
+
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step3-clusters.js");
     	}, new VelocityTemplateEngine());
     	
@@ -346,7 +352,8 @@ public class View {
     		Map<String, Object> model = new HashMap<String, Object>();
     		Controller ctl = request.session().attribute("ctl");
     		model.put("paragraphs", ctl.getUsedParagraphs());
-    		
+
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step3-recommender.js");
     	}, new VelocityTemplateEngine());
     	
@@ -464,6 +471,8 @@ public class View {
     		Map<String, Object> model = new HashMap<String, Object>();
     		Controller ctl = request.session().attribute("ctl");
     		model.put("paragraphs", ctl.getUsedParagraphs());
+    		
+    		response.type("text/javascript");
     		return new ModelAndView(model, "scripts/step4.js");
     	}, new VelocityTemplateEngine());
     	
@@ -521,6 +530,7 @@ public class View {
     		Map<String, Object> model = new HashMap<String, Object>();
     		Controller ctl = request.session().attribute("ctl");
     		model.put("paragraphs", ctl.getAvailableParagraphs());
+    		response.type("text/javascript");
     		
     		return new ModelAndView(model, "scripts/admin.js");
     	}, new VelocityTemplateEngine());
@@ -548,28 +558,33 @@ public class View {
 	
 	private void staticResources() {
 		get("aehlke-tag-it/css/jquery.tagit.css", (request, response) -> {
+    		response.type("text/css");
 			
 			return new ModelAndView(new HashMap<String, Object>(), "aehlke-tag-it/css/jquery.tagit.css");
     	}, new VelocityTemplateEngine());
 		
 
 		get("aehlke-tag-it/js/tag-it.js", (request, response) -> {
+    		response.type("text/javascript");
 			
 			return new ModelAndView(new HashMap<String, Object>(), "aehlke-tag-it/js/tag-it.js");
     	}, new VelocityTemplateEngine());
 		
 		get("slider/css/slider.css", (request, response) -> {
+    		response.type("text/css");
 			
 			return new ModelAndView(new HashMap<String, Object>(), "slider/css/slider.css");
     	}, new VelocityTemplateEngine());
 
 
 		get("slider/js/bootstrap-slider.js", (request, response) -> {
+    		response.type("text/javascript");
 			
 			return new ModelAndView(new HashMap<String, Object>(), "slider/js/bootstrap-slider.js");
 		}, new VelocityTemplateEngine());
 		
 		get("scripts/homepage.js", (request, response) -> {
+    		response.type("text/javascript");
 			
 			return new ModelAndView(new HashMap<String, Object>(), "scripts/homepage.js");
     	}, new VelocityTemplateEngine());
