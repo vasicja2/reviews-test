@@ -2,6 +2,9 @@ package reviewsFirst;
 
 import static spark.Spark.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -556,6 +559,27 @@ public class View {
     	}, new VelocityTemplateEngine());
 	}
 	
+	private String getFileContents(String filename) {
+		String result = "";
+		
+		try (BufferedReader breader = new BufferedReader(new FileReader(filename))) {
+			String line = breader.readLine();			/*Skip the head of the log file*/
+			
+			while (line != null) {
+				line = breader.readLine();
+				
+				if (line == null || line.isEmpty()) break;
+				
+				result += line;
+			} 
+		} catch (IOException e) {
+			System.err.println("Problem reading the file " + filename + "!");
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	private void staticResources() {
 		get("aehlke-tag-it/css/jquery.tagit.css", (request, response) -> {
     		response.type("text/css");
@@ -577,11 +601,7 @@ public class View {
     	}, new VelocityTemplateEngine());
 
 
-		get("slider/js/bootstrap-slider.js", (request, response) -> {
-    		response.type("text/javascript");
-			
-			return new ModelAndView(new HashMap<String, Object>(), "slider/js/bootstrap-slider.js");
-		}, new VelocityTemplateEngine());
+		get("slider/js/bootstrap-slider.js", (request, response) -> getFileContents("slider/js/bootstrap-slider.js"));
 		
 		get("scripts/homepage.js", (request, response) -> {
     		response.type("text/javascript");
