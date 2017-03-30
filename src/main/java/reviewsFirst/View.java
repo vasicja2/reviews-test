@@ -26,6 +26,7 @@ public class View {
 	public void run() {
 		org.apache.log4j.BasicConfigurator.configure();
 		staticFiles.location("/");
+		port(processBuilder.environment().get("PORT"));
 		
 		homepage();
 		step1();
