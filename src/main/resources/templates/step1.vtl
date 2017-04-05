@@ -1,0 +1,35 @@
+<form action="/questions" id="mainForm" method="post">	
+  	<input type="text" class="form-control" id="where" name="where" value='$where'>   
+	
+	<h1>$title</h1>
+	<h3>$type</h3>
+
+	<div class="row" style="border-top:1px solid">
+		<br>
+		<div class="col col-lg-6">
+			<h3>Please select the paragraphs you want to include in your review:</h3>
+			<br>
+			#foreach($option in $paragraphOptions)
+				<div class="checkbox">
+					<label>
+					    <input type="checkbox" value="1" name="$option.getId()" id="$option.getId()">
+					    $option.getTitle()
+					</label>
+				</div>	
+			#end
+		</div>
+		<div class="col col-lg-5" align="center">
+			<h3>Please specify the topic of this thesis:</h3>
+			<br>
+			#foreach($entry in $keywords.entrySet())
+			<div align="center" id="$entry.getKey().getId()-div">
+				<p style="font-weight:bold">$entry.getKey().getQuestion()</p>
+				<ul id="$entry.getKey().getId()-tags"></ul>
+				<input type="button" class="btn btn-primary" value="Prev" id="$entry.getKey().getId()-prev">
+				<input type="button" class="btn btn-primary" value="Next" id="$entry.getKey().getId()-next">
+			</div>
+			#end
+		</div>
+	</div>
+    <button type="submit" class="btn btn-primary">Done</button>	
+</form>
