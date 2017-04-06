@@ -627,14 +627,14 @@ public class View {
 		String result = "";
 		
 		try (BufferedReader breader = new BufferedReader(new FileReader(filename))) {
-			String line = breader.readLine();			/*Skip the head of the log file*/
+			String line = "";
 			
 			while (line != null) {
 				line = breader.readLine();
 				
-				if (line == null || line.isEmpty()) break;
+				if (line == null) break;
 				
-				result += line;
+				result += line + '\n';
 			} 
 		} catch (IOException e) {
 			System.err.println("Problem reading the file " + filename + "!");
@@ -658,14 +658,14 @@ public class View {
 			return new ModelAndView(new HashMap<String, Object>(), "aehlke-tag-it/js/tag-it.js");
     	}, new VelocityTemplateEngine());
 		
-		get("slider/css/slider.css", (request, response) -> {
-    		response.type("text/css");
+		get("slider.css", (request, response) -> {
+			response.type("text/css");
 			
-			return new ModelAndView(new HashMap<String, Object>(), "slider/css/slider.css");
-    	}, new VelocityTemplateEngine());
+			return getFileContents("src/main/resources/slider/css/slider.css");	
+		});
 
 
-		get("slider/js/bootstrap-slider.js", (request, response) -> getFileContents("slider/js/bootstrap-slider.js"));
+		get("bootstrap-slider.js", (request, response) -> getFileContents("src/main/resources/slider/js/bootstrap-slider.js"));
 		
 		get("scripts/homepage.js", (request, response) -> {
     		response.type("text/javascript");

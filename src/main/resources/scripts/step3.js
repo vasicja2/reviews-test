@@ -8,7 +8,8 @@ var submitForm = function() {
 $(document).ready(function(){
 	
 	//				Define all actions on buttons
-	var form = $("#form");
+	var form = $("#mainForm");
+	$("#hidden").hide();
 	
 
 	$('#btn-save').click(function(){
@@ -27,8 +28,9 @@ $(document).ready(function(){
 		submitForm();
 	});
 	
-    $( "#accordion" ).accordion({
-	    autoHeight: false
+    $("#accordion").accordion({
+	    autoHeight: false,
+	    collapsible: true
 	});	
     
 	//					Prevent user from submitting by enter

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SentenceCluster {
+	private int clusterId;
 	private double centroidPosition;
 	private double[] centroidAttributes;
 	private double currentDistance;
@@ -131,5 +132,13 @@ public class SentenceCluster {
 	
 	public void setCurrentDistance(double currentDistance) {
 		this.currentDistance = currentDistance;
+	}
+	
+	public void setClusterId(int clusterID) {
+		this.clusterId = clusterID;
+	}
+	
+	public int getClusterId() {
+		return clusterId;
 	}
 }

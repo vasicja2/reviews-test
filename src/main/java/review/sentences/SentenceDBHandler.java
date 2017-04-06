@@ -5,9 +5,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -125,6 +122,7 @@ public class SentenceDBHandler {
 		text += "Value\n";
 		
 		for (int i=0; i<clusters.size(); i++) {
+			clusters.get(i).setClusterId(i);
 			for (Sentence s  : clusters.get(i).getSentences()) {
 				text += Integer.toString(i) + ";";
 				text += Integer.toString(s.getPosition()) + ";";
@@ -188,6 +186,7 @@ public class SentenceDBHandler {
 			} else {
 				SentenceCluster cluster = new SentenceCluster(sentences.get(upper-1));
 				cluster.addSentences(sentences.subList(lower, upper-1));
+				cluster.setClusterId(sentences.get(upper-1).getClusterID());
 				result.add(cluster);
 			}
 			
@@ -293,10 +292,13 @@ public class SentenceDBHandler {
 			}
 			text += s.getValue() + "\n";
 		}
-		text += "\n";
+		//text += "\n";
 		
 		try {
-			Files.write(Paths.get(filename), text.getBytes(), StandardOpenOption.WRITE);
+			File f = new File(filename);
+			FileOutputStream fostream = new FileOutputStream(f, false);
+			fostream.write(text.getBytes());
+			fostream.close();
 		} catch (IOException e) {
 			System.err.println("Problem writing the file " + filename + "!");
 			e.printStackTrace();

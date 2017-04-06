@@ -1,13 +1,24 @@
-//			Save all clusters
-var i;
-var j = 0;
+var k;
+var l = 0;
 
+var getClusterByID = function(clusters, ID) {
+	for(var i=0; i<clusters.length; i++) {
+		if (clusters[i].cID === ID) {
+			return clusters[i];
+		}
+	}
+	
+	return null;
+}
+
+//				Save all clusters
 #foreach($entry in $recommended.entrySet())
 var clusters${entry.getKey().getId()} = [];
-i = 0;
+k = 0;
 	
 	#foreach($cluster in $entry.getValue())
 	clusters${entry.getKey().getId()}.push({
+		cID : $cluster.getClusterId(),
 		cPosition : $cluster.getCentroidPosition(),
 		cDistance : $cluster.getCurrentDistance(),
 		cActive : false,
@@ -16,25 +27,25 @@ i = 0;
 	});
 	
 		#foreach($sentence in $cluster.getOpeningSentences())
-		clusters${entry.getKey().getId()}[i].cOpeningSentences.push({
-			sID : j,
+		clusters${entry.getKey().getId()}[k].cOpeningSentences.push({
+			sID : l,
 			sChosen : false,
 			sDistance : $sentence.getDistance(),
 			sValue : "$sentence.getValue()"
 		});
-		j += 1;
+		l += 1;
 		#end
 		
 		#foreach($sentence in $cluster.getOtherSentences())
-		clusters${entry.getKey().getId()}[i].cOtherSentences.push({
-			sID : j,
+		clusters${entry.getKey().getId()}[k].cOtherSentences.push({
+			sID : l,
 			sChosen : false,
 			sDistance : $sentence.getDistance(),
 			sValue : "$sentence.getValue()"
 		});
-		j += 1;
+		l += 1;
 		#end
-	i += 1;	
+	k += 1;	
 	#end
 	
 #end

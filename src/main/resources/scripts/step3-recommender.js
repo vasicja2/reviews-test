@@ -20,15 +20,14 @@ var countSentences = function(text){
 
 var dialogToAlter = function(senID, clusters) {
 	var parID = senID.split(".")[0];
-	var clusterID = senID.split(".")[1];
-	var sentenceOrder = senID.split(".")[2].split("o")[0];
-	var sentenceType = senID.split(".")[2].split("o")[1];
+	var clusterID = parseInt(senID.split(".")[1]);
+	var cluster = getClusterByID(clusters, clusterID);
 	
 	var result = "<div class=\"dialog-alter-" + parID + "\" title=\"Alternative formulaions:\">" +
 	"<form>";
 	result += "<fieldset>";
 	var option = "";
-	for (var i=0; i<clusters[clusterID].cOpeningSentences.length; i++) {
+	for (var i=0; i<cluster.cOpeningSentences.length; i++) {
 		var newID = parID + "." + clusterID + "." + i + "op";
 		
 		option = "<div class=\"form-check\">";
@@ -36,14 +35,14 @@ var dialogToAlter = function(senID, clusters) {
 		if (newID === senID) {
 			option +=" checked";
 		}
-		option += "/>" + clusters[clusterID].cOpeningSentences[i].sValue;
+		option += "/>" + cluster.cOpeningSentences[i].sValue;
 		option += "</label>";
 		option += "</div>";
 		
 		result += option;
 	}
 	
-	for (var i=0; i<clusters[clusterID].cOtherSentences.length; i++) {
+	for (var i=0; i<cluster.cOtherSentences.length; i++) {
 		var newID = parID + "." + clusterID + "." + i + "ot";
 		
 		option = "<div class=\"form-check\">";
@@ -51,7 +50,7 @@ var dialogToAlter = function(senID, clusters) {
 		if (newID === senID) {
 			option +=" checked";
 		}
-		option += "/>" + clusters[clusterID].cOtherSentences[i].sValue;
+		option += "/>" + cluster.cOtherSentences[i].sValue;
 		option += "</label>";
 		option += "</div>";
 		
@@ -81,7 +80,7 @@ var recommend = function(parID, clusters, maxSentences) {
 				continue;
 			}
 			
-			var toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + i + ".0op\">";
+			var toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + ".0op\">";
 			toAdd += clusters[i].cOpeningSentences[0].sValue;
 			toAdd += "<\p>";
 			
@@ -107,25 +106,25 @@ var recommend = function(parID, clusters, maxSentences) {
 				lastCluster = Math.min(clusters.length, lastCluster+1);
 				continue;
 			} else if (s1 === null) {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + i + ".0ot\">";
+				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + ".0ot\">";
 				toAdd += s2.sValue;
 				toAdd += "<\p>";
 				sentenceDiv.append(toAdd);
 				s2.sChosen = true;
 			} else if (s2 === null) {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + i + ".0op\">";
+				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + ".0op\">";
 				toAdd += s1.sValue;
 				toAdd += "<\p>";	
 				sentenceDiv.append(toAdd);	
 				s1.sChosen = true;					
 			} else if (s1.sDistance < s2.sDistance) {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + i + ".0op\">";
+				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + ".0op\">";
 				toAdd += s1.sValue;
 				toAdd += "<\p>";	
 				sentenceDiv.append(toAdd);	
 				s1.sChosen = true;			
 			} else {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + i + ".0ot\">";
+				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + ".0ot\">";
 				toAdd += s2.sValue;
 				toAdd += "<\p>";		
 				sentenceDiv.append(toAdd);	
@@ -172,16 +171,17 @@ $(document).ready(function() {
 					$(".alterRadio").each(function(){
 						if ($(this).prop("checked")) {
 							var newID = $(this).attr('id');
-							var clusterID = newID.split(".")[1];
+							var clusterID = parseInt(newID.split(".")[1]);
 							var newType = newID.split(".")[2];
 							var newPos = parseInt(newID.split(".")[2].split("o")[0]);
+							var cluster = getClusterByID(clusters${paragraph.getId()}, clusterID);
 							var newVal;
 							if (newType.endsWith('p')) {
-								newVal = clusters${paragraph.getId()}[clusterID].cOpeningSentences[newPos].sValue;
-								clusters${paragraph.getId()}[clusterID].cOpeningSentences[newPos].sChosen = true;
+								newVal = cluster.cOpeningSentences[newPos].sValue;
+								cluster.cOpeningSentences[newPos].sChosen = true;
 							} else {
-								newVal = clusters${paragraph.getId()}[clusterID].cOtherSentences[newPos].sValue;
-								clusters${paragraph.getId()}[clusterID].cOtherSentences[newPos].sChosen = true;
+								newVal = cluster.cOtherSentences[newPos].sValue;
+								cluster.cOtherSentences[newPos].sChosen = true;
 							}
 							
 							
@@ -191,14 +191,15 @@ $(document).ready(function() {
 							$("#$paragraph.getId()-choice").append(newPar);
 						} else {
 							var newID = $(this).attr('id');
-							var clusterID = newID.split(".")[1];
+							var clusterID = parseInt(newID.split(".")[1]);
 							var newType = newID.split(".")[2];
 							var newPos = parseInt(newID.split(".")[2].split("o")[0]);
+							var cluster = getClusterByID(clusters${paragraph.getId()}, clusterID);
 							
 							if (newType.endsWith('p')) {
-								clusters${paragraph.getId()}[clusterID].cOpeningSentences[newPos].sChosen = false;
+								cluster.cOpeningSentences[newPos].sChosen = false;
 							} else {
-								clusters${paragraph.getId()}[clusterID].cOtherSentences[newPos].sChosen = false;								
+								cluster.cOtherSentences[newPos].sChosen = false;								
 							}
 						}
 					});
@@ -221,39 +222,41 @@ $(document).ready(function() {
 	
 	$(".$paragraph.getId()-sentence").live('click', function(){
 		var thisID = $(this).attr('id');
+		$("#hidden").val($("#hidden").val() + thisID + ' ');
 		
 		if (thisID != 'x') {
-			var clusterID = thisID.split(".")[1];
+			var clusterID = parseInt(thisID.split(".")[1]);
 			var type = thisID.split(".")[2];
 			var pos = parseInt(thisID.split(".")[2].split("o")[0]);
+			var cluster = getClusterByID(clusters${paragraph.getId()}, clusterID);
 			
 			/*Remove the sentence from the cluster*/
 			if (type.endsWith('p')) {
-				clusters${paragraph.getId()}[clusterID].cOpeningSentences.splice(pos, 1);
+				cluster.cOpeningSentences.splice(pos, 1);
 			} else {
-				clusters${paragraph.getId()}[clusterID].cOtherSentences.splice(pos, 1);			
+				cluster.cOtherSentences.splice(pos, 1);			
 			}
 			
 			/*Check if the cluster is still active*/
 			var active = false;
-			for (var i=0; i<clusters${paragraph.getId()}[clusterID].cOpeningSentences.length; i++) {
-				if (clusters${paragraph.getId()}[clusterID].cOpeningSentences[i].sChosen) {
+			for (var i=0; i<cluster.cOpeningSentences.length; i++) {
+				if (cluster.cOpeningSentences[i].sChosen) {
 					active = true;
 					break;
 				}
 			}
 			if (!active) {
-				for (var i=0; i<clusters${paragraph.getId()}[clusterID].cOtherSentences.length; i++) {
-					if (clusters${paragraph.getId()}[clusterID].cOtherSentences[i].sChosen) {
+				for (var i=0; i<cluster.cOtherSentences.length; i++) {
+					if (cluster.cOtherSentences[i].sChosen) {
 						active = true;
 						break;
 					}
 				}
 			}
-			clusters${paragraph.getId()}[clusterID].cActive = active;
+			cluster.cActive = active;
 			
 			/*Change the distance and re-sort the clusters*/
-			clusters${paragraph.getId()}[clusterID].cDistance += 10;		
+			cluster.cDistance += 10;		
 			clusters${paragraph.getId()}.sort(function(a,b){
 				return a.cDistance - b.cDistance;
 			});
