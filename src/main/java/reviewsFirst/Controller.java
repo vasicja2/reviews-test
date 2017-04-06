@@ -160,7 +160,7 @@ public class Controller {
 	 */
 	public void saveInput(Map<String, String[]> input) {
 		for (String id : input.keySet()) {
-			if(id.equals("where")) continue;
+			if(id.equals("where") || id.equals("hidden")) continue;
 			Paragraph par = review.getParagraph(id);
 			par.setText(input.get(id)[0]);
 		}

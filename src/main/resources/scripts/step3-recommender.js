@@ -222,9 +222,10 @@ $(document).ready(function() {
 	
 	$(".$paragraph.getId()-sentence").live('click', function(){
 		var thisID = $(this).attr('id');
-		$("#hidden").val($("#hidden").val() + thisID + ' ');
 		
 		if (thisID != 'x') {
+			$("#hidden").val($("#hidden").val() + thisID + ' ');
+			
 			var clusterID = parseInt(thisID.split(".")[1]);
 			var type = thisID.split(".")[2];
 			var pos = parseInt(thisID.split(".")[2].split("o")[0]);
