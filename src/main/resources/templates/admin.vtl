@@ -31,7 +31,7 @@
 		<br>
 		<div class="row" id="$entry.getKey().getId()-subrow3" align="center">
 		#foreach($sentence in $entry.getValue())
-			<p>${sentence.getClusterID()};${sentence.getPosition()};#foreach($attr in $sentence.getAttributes())${attr};#end${sentence.getValue()}</p>
+			<p>${sentence.getClusterID()};${sentence.getPosition()};#foreach($attr in $sentence.getAttributes())${attr};#end#foreach($additional in ${sentence.getAdditionalAttributes()})${additional}~#end${sentence.getValue()}</p>
 		#end
 		</div>
 		

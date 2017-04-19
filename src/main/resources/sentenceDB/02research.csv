@@ -1,55 +1,55 @@
 Cluster;Position;Attr0;Attr1;Attr2;Attr3;Attr4;Value
-0;2;-1.0;100.0;-1.0;-1.0;-1.0;The thesis does not contain any unnecessary parts.
-0;2;-1.0;100.0;-1.0;-1.0;-1.0;No unnecessary parts are remarked.
-1;1;100.0;-1.0;-1.0;-1.0;-1.0;The size of the work corresponds to the expected level.
-1;2;100.0;-1.0;-1.0;-1.0;-1.0;It contains and describes all the main parts including __.
-2;1;-1.0;-1.0;75.0;-1.0;-1.0;The thesis is correct in conceptual and subject terms. 
-2;1;-1.0;-1.0;80.0;-1.0;-1.0;The thesis does not contain any factual errors or inaccuracies.
-2;2;-1.0;-1.0;75.0;-1.0;-1.0;I have found only a few imperfections.
-3;1;-1.0;-1.0;-1.0;60.0;-1.0;A few additional publications could still have been added, namely for __. 
-3;2;-1.0;-1.0;-1.0;50.0;-1.0;However, the student should have avoided citing __.
-3;2;-1.0;-1.0;-1.0;50.0;-1.0;However, I found references to __ a little inappropriate.
-4;2;-1.0;-1.0;65.0;70.0;-1.0;Even though the bibliography is rather extensive, I miss more research papers on this topic.
-5;2;70.0;-1.0;65.0;-1.0;-1.0;Some chapters could have been richer in information.
-6;2;-1.0;-1.0;55.0;-1.0;-1.0;I do not agree with the theorem regarding __.
-6;2;-1.0;-1.0;50.0;-1.0;-1.0;The most important impediment is the insufficient interconnection between __ and __.
-7;2;30.0;-1.0;35.0;-1.0;-1.0;The chapter __ is also extremely short and incomplete.
-8;1;-1.0;-1.0;20.0;-1.0;-1.0;This work contains a large number of significant errors.
-8;2;-1.0;-1.0;25.0;-1.0;-1.0;Overall, the thesis lacks important pieces of information and context.
-9;2;20.0;-1.0;40.0;-1.0;-1.0;I acknowledge that even a short work of excellent quality is acceptable, but this is not the case. 
-10;1;-1.0;-1.0;-1.0;-1.0;100.0;The text clearly states what is author's contribution and what has been done before or by somebody else.
-10;2;-1.0;-1.0;-1.0;-1.0;100.0;Articles and used bibliography are properly cited.
-11;1;-1.0;-1.0;90.0;90.0;90.0;The work is rich in sources and the literature is properly quoted.
-11;2;-1.0;-1.0;85.0;90.0;90.0;The student properly put his work in the context of related work, but emphasized his own contributions.
-12;2;-1.0;-1.0;-1.0;-1.0;40.0;I miss references to the quoted literature in sections __.
-12;2;-1.0;-1.0;-1.0;-1.0;40.0;Sadly, the authorship of a few parts is not clearly distinguishable.
-12;2;-1.0;-1.0;-1.0;-1.0;40.0;There is no proper citation for __.
-12;2;-1.0;-1.0;-1.0;-1.0;50.0;References could be used a bit more often.
-12;2;-1.0;-1.0;-1.0;-1.0;50.0;For example, __ should either have a reference to the source or a more detailed explanation.
-13;1;-1.0;-1.0;-1.0;100.0;-1.0;The text references the relevant documents on __. 
-13;2;-1.0;-1.0;-1.0;100.0;-1.0;Consequently, I find this to be a very complete and accurate bibliography.
-13;2;-1.0;-1.0;-1.0;90.0;-1.0;All cited sources are relevant.
-14;1;-1.0;-1.0;-1.0;75.0;-1.0;The sources of information are well chosen and several relevant tools have been analysed.
-14;2;-1.0;-1.0;-1.0;80.0;-1.0;The student based his work on relevant sources.
-15;1;-1.0;-1.0;-1.0;-1.0;15.0;The text has blocks which have been copied from external sources and are not properly cited.
-15;2;-1.0;-1.0;-1.0;-1.0;15.0;The chapter __ contains entire paragraphs taken word by word from other sources.
-15;2;-1.0;-1.0;-1.0;-1.0;15.0;The author does not mention the sources for __, although they are obtained from external sources.
-15;2;-1.0;-1.0;-1.0;-1.0;20.0;The section __ contains __ taken without attribution.
-15;2;-1.0;-1.0;-1.0;-1.0;10.0;For me this implies the infringement of the citation ethics.
-16;2;-1.0;-1.0;-1.0;30.0;-1.0;__ is not a good source for an academic publication.
-17;2;-1.0;-1.0;90.0;80.0;-1.0;The majority of this bibliography was brought in by the student, independently.
-18;1;70.0;-1.0;-1.0;-1.0;-1.0;The resulting text is shorter than usual, however __.
-19;1;-1.0;-1.0;-1.0;75.0;75.0;The student's activity in acquisition and use of studying materials was slightly above the average.
-20;1;100.0;-1.0;100.0;-1.0;-1.0;The thesis document is rich and rather extensive with detailed descriptions of the main parts.
-21;1;100.0;-1.0;80.0;-1.0;-1.0;The theoretical part is extensive and the author tried to define all needed terms.
-22;1;-1.0;-1.0;65.0;-1.0;-1.0;The thesis contains no serious misconceptions as far as I am concerned.
-22;1;-1.0;-1.0;65.0;-1.0;-1.0;In general the thesis contains no factual errors.
-22;1;-1.0;-1.0;65.0;-1.0;-1.0;I was unable to identify any significant mistakes.
-23;1;20.0;-1.0;-1.0;-1.0;-1.0;In my opinion the size of the thesis is insufficent.
-23;1;20.0;-1.0;-1.0;-1.0;-1.0;The presented thesis is incomplete and insufficent in size.
-24;1;60.0;-1.0;40.0;-1.0;-1.0;The written thesis is sufficent in size, but the text is too brief and some parts should have been more detailed.
-25;1;-1.0;-1.0;90.0;90.0;-1.0;The student did a great job identifying and discussing related work.
-25;1;-1.0;-1.0;90.0;95.0;-1.0;The student has covered and surveyed a number of technologies, consistently finding resources and references addressing the state of the art in those technologies.
-26;1;-1.0;-1.0;80.0;95.0;-1.0;Excellent work with different sources of literature for all parts of the thesis.
-27;1;-1.0;35.0;-1.0;-1.0;-1.0;The section __ contains unnecessary information.
-28;2;-1.0;20.0;-1.0;-1.0;-1.0;Particular sections require detailed explanation, while some parts are unnecessary.
+-1;2;-1.0;100.0;-1.0;-1.0;-1.0;The thesis does not contain any unnecessary parts.
+-1;2;-1.0;100.0;-1.0;-1.0;-1.0;No unnecessary parts are remarked.
+-1;1;100.0;-1.0;-1.0;-1.0;-1.0;The size of the work corresponds to the expected level.
+-1;2;100.0;-1.0;-1.0;-1.0;-1.0;It contains and describes all the main parts including __.
+-1;1;-1.0;-1.0;75.0;-1.0;-1.0;The thesis is correct in conceptual and subject terms. 
+-1;1;-1.0;-1.0;80.0;-1.0;-1.0;The thesis does not contain any factual errors or inaccuracies.
+-1;2;-1.0;-1.0;75.0;-1.0;-1.0;I have found only a few imperfections.
+-1;1;-1.0;-1.0;-1.0;60.0;-1.0;A few additional publications could still have been added, namely for __. 
+-1;2;-1.0;-1.0;-1.0;50.0;-1.0;However, the student should have avoided citing __.
+-1;2;-1.0;-1.0;-1.0;50.0;-1.0;However, I found references to __ a little inappropriate.
+-1;2;-1.0;-1.0;65.0;70.0;-1.0;Even though the bibliography is rather extensive, I miss more research papers on this topic.
+-1;2;70.0;-1.0;65.0;-1.0;-1.0;Some chapters could have been richer in information.
+-1;2;-1.0;-1.0;55.0;-1.0;-1.0;I do not agree with the theorem regarding __.
+-1;2;-1.0;-1.0;50.0;-1.0;-1.0;The most important impediment is the insufficient interconnection between __ and __.
+-1;2;30.0;-1.0;35.0;-1.0;-1.0;The chapter __ is also extremely short and incomplete.
+-1;1;-1.0;-1.0;20.0;-1.0;-1.0;This work contains a large number of significant errors.
+-1;2;-1.0;-1.0;25.0;-1.0;-1.0;Overall, the thesis lacks important pieces of information and context.
+-1;2;20.0;-1.0;40.0;-1.0;-1.0;I acknowledge that even a short work of excellent quality is acceptable, but this is not the case. 
+-1;1;-1.0;-1.0;-1.0;-1.0;100.0;The text clearly states what is author's contribution and what has been done before or by somebody else.
+-1;2;-1.0;-1.0;-1.0;-1.0;100.0;Articles and used bibliography are properly cited.
+-1;1;-1.0;-1.0;90.0;90.0;90.0;The work is rich in sources and the literature is properly quoted.
+-1;2;-1.0;-1.0;85.0;90.0;90.0;The student properly put his work in the context of related work, but emphasized his own contributions.
+-1;2;-1.0;-1.0;-1.0;-1.0;40.0;I miss references to the quoted literature in sections __.
+-1;2;-1.0;-1.0;-1.0;-1.0;40.0;Sadly, the authorship of a few parts is not clearly distinguishable.
+-1;2;-1.0;-1.0;-1.0;-1.0;40.0;There is no proper citation for __.
+-1;2;-1.0;-1.0;-1.0;-1.0;50.0;References could be used a bit more often.
+-1;2;-1.0;-1.0;-1.0;-1.0;50.0;For example, __ should either have a reference to the source or a more detailed explanation.
+-1;1;-1.0;-1.0;-1.0;100.0;-1.0;The text references the relevant documents on __. 
+-1;2;-1.0;-1.0;-1.0;100.0;-1.0;Consequently, I find this to be a very complete and accurate bibliography.
+-1;2;-1.0;-1.0;-1.0;90.0;-1.0;All cited sources are relevant.
+-1;1;-1.0;-1.0;-1.0;75.0;-1.0;The sources of information are well chosen and several relevant tools have been analysed.
+-1;2;-1.0;-1.0;-1.0;80.0;-1.0;The student based his work on relevant sources.
+-1;1;-1.0;-1.0;-1.0;-1.0;15.0;The text has blocks which have been copied from external sources and are not properly cited.
+-1;2;-1.0;-1.0;-1.0;-1.0;15.0;The chapter __ contains entire paragraphs taken word by word from other sources.
+-1;2;-1.0;-1.0;-1.0;-1.0;15.0;The author does not mention the sources for __, although they are obtained from external sources.
+-1;2;-1.0;-1.0;-1.0;-1.0;20.0;The section __ contains __ taken without attribution.
+-1;2;-1.0;-1.0;-1.0;-1.0;10.0;For me this implies the infringement of the citation ethics.
+-1;2;-1.0;-1.0;-1.0;30.0;-1.0;__ is not a good source for an academic publication.
+-1;2;-1.0;-1.0;90.0;80.0;-1.0;The majority of this bibliography was brought in by the student, independently.
+-1;1;70.0;-1.0;-1.0;-1.0;-1.0;The resulting text is shorter than usual, however __.
+-1;1;-1.0;-1.0;-1.0;75.0;75.0;The student's activity in acquisition and use of studying materials was slightly above the average.
+-1;1;100.0;-1.0;100.0;-1.0;-1.0;The thesis document is rich and rather extensive with detailed descriptions of the main parts.
+-1;1;100.0;-1.0;80.0;-1.0;-1.0;The theoretical part is extensive and the author tried to define all needed terms.
+-1;1;-1.0;-1.0;65.0;-1.0;-1.0;The thesis contains no serious misconceptions as far as I am concerned.
+-1;1;-1.0;-1.0;65.0;-1.0;-1.0;In general the thesis contains no factual errors.
+-1;1;-1.0;-1.0;65.0;-1.0;-1.0;I was unable to identify any significant mistakes.
+-1;1;20.0;-1.0;-1.0;-1.0;-1.0;In my opinion the size of the thesis is insufficent.
+-1;1;20.0;-1.0;-1.0;-1.0;-1.0;The presented thesis is incomplete and insufficent in size.
+-1;1;60.0;-1.0;40.0;-1.0;-1.0;The written thesis is sufficent in size, but the text is too brief and some parts should have been more detailed.
+-1;1;-1.0;-1.0;90.0;90.0;-1.0;The student did a great job identifying and discussing related work.
+-1;1;-1.0;-1.0;90.0;95.0;-1.0;The student has covered and surveyed a number of technologies, consistently finding resources and references addressing the state of the art in those technologies.
+-1;1;-1.0;-1.0;80.0;95.0;-1.0;Excellent work with different sources of literature for all parts of the thesis.
+-1;1;-1.0;35.0;-1.0;-1.0;-1.0;The section __ contains unnecessary information.
+-1;2;-1.0;20.0;-1.0;-1.0;-1.0;Particular sections require detailed explanation, while some parts are unnecessary.

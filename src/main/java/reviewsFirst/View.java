@@ -585,7 +585,7 @@ public class View {
     		ArrayList<String> scripts = new ArrayList<>();
     		scripts.add("admin.js");
     		
-    		Map<String, Object> model = createModel("templates/admin.vtl", completed, "step0");
+    		Map<String, Object> model = createModel("templates/admin.vtl", completed, "step-1");
     		model.put("template", "templates/admin.vtl");
     		model.put("scripts", scripts);
     		model.put("sentenceDB", ctl.getSentenceDB());
