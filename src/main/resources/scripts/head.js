@@ -10,7 +10,7 @@ $(document).ready(function(){
 	$('#where').hide();
 	
 	var completed = $completed;
-	var where = ${where.charAt(4)};
+	var where = ${where.substring(4, ${where.length()})};
 	where += 1;
 	
 	var topReached = Math.max(completed, where);

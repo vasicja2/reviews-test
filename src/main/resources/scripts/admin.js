@@ -1,3 +1,7 @@
+var submitForm = function() {
+	$("form").submit();
+}
+
 $(document).ready(function(){
 	$("#accordion").accordion({
 	    autoHeight: false,
