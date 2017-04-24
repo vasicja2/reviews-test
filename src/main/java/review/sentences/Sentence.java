@@ -8,6 +8,7 @@ package review.sentences;
  */
 public class Sentence {
 	private int clusterID;
+	private int sentenceID;
 	private int position;
 	private double distance;
 	private double[] attributes;
@@ -29,6 +30,14 @@ public class Sentence {
 	
 	public void setClusterID(int clusterID) {
 		this.clusterID = clusterID;
+	}
+	
+	public int getSentenceID() {
+		return sentenceID;
+	}
+	
+	public void setSentenceID(int sentenceID) {
+		this.sentenceID = sentenceID;
 	}
 	
 	public double[] getAttributes() {

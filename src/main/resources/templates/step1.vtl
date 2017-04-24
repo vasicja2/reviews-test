@@ -7,11 +7,11 @@
 	<div class="row" style="border-top:1px solid;border-bottom:1px solid">
 		<br>
 		<div class="col col-lg-6">
-			<h3>Please select the paragraphs you want to include in your review:</h3>
+			<h3 title="Each paragraph has a set of topics it concerns. The application holds a database of sentences that might be useful in your review and they will be suggested to you based on your choice of paragraphs and evaluation in the next step. Hover over each option to see the description of the paragraph.">Please select the paragraphs you want to include in your review:</h3>
 			<br>
 			#foreach($option in $paragraphOptions)
 				<div class="checkbox">
-					<label>
+					<label title="$option.getDescription()" class="nohelp">
 					    <input type="checkbox" value="1" name="$option.getId()" id="$option.getId()">
 					    $option.getTitle()
 					</label>
@@ -19,12 +19,12 @@
 			#end
 		</div>
 		<div class="col col-lg-5" align="center">
-			<h3 title="You will be able to insert these tags anywhere into your text by a click">Please specify the topic of this thesis:</h3>
+			<h3 title="Some of the suggested sentences will contain gaps. You will be able to insert these tags into the gaps or anywhere else into your text by a click.">Please specify the topic of this thesis:</h3>
 			<br>
 			#foreach($type in $kwTypes)
 			<div align="center" id="$type.getId()-div">
-				<p style="font-weight:bold" title="Separate by hitting Enter">$type.getQuestion()</p>
-				<ul id="$type.getId()-tags"></ul>
+				<p style="font-weight:bold">$type.getQuestion()</p>
+				<ul id="$type.getId()-tags" class="nohelp" title="Separate by hitting Enter"></ul>
 				<input type="button" class="btn btn-primary" value="Prev" id="$type.getId()-prev">
 				<input type="button" class="btn btn-primary" value="Next" id="$type.getId()-next">
 			</div>
@@ -33,4 +33,5 @@
 	</div>
 	<br>
     <button type="submit" class="btn btn-primary">Next</button>	
+    <button class="btn btn-primary" id="btn_help" style="float:right">Show help</button>	
 </form>

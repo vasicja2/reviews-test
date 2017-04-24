@@ -96,8 +96,8 @@ $(document).ready(function(){
 		}
 	#end
 	$("#$paragraph.getId()-order").sortable();
-	$("#$paragraph.getId()-order").sortable('enable');
-	$("#$paragraph.getId()-hidden").hide();
+	//$("#$paragraph.getId()-order").sortable('enable');
+	//$("#$paragraph.getId()-hidden").hide();
 	
 
 	//					On change rewrite the sorting div

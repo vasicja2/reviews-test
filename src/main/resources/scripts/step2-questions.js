@@ -8,6 +8,12 @@ $(document).ready(function(){
 		form.submit();
 	});
 	
+	$("#btn_back").click(function(){
+		form.attr('action', "/paragraphs");
+		form.attr('method', "POST");
+		form.submit();
+	});
+	
     $( "#accordion" ).accordion({
 	    autoHeight: false,
 	    collapsible : true

@@ -25,13 +25,18 @@ public class SentenceDBHandler {
 		
 		try (BufferedReader breader = new BufferedReader(new FileReader(filename))) {
 			String line = breader.readLine();			/*Skip the head of the log file*/
+			int count = 0;
 			
 			while (true) {
 				line = breader.readLine();
 				
 				if (line == null || line.isEmpty()) break;
 				
-				result.add(processLine(line, attrCount));
+				Sentence s = processLine(line, attrCount);
+				s.setSentenceID(count);
+				count++;
+				
+				result.add(s);
 			} 
 		} catch (IOException e) {
 			System.err.println("Problem reading the file " + filename + "!");

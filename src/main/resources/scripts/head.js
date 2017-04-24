@@ -1,12 +1,11 @@
 var headIsActive = function(id) {
-	if ($(id).attr('class') === "headActive")
+	if ($(id).attr('class').includes("headActive"))
 		return true;
 	return false;
 }
 
-$(document).tooltip();
-
 $(document).ready(function(){
+	$("[title]").tooltip();
 	$('#where').hide();
 	
 	var completed = $completed;
@@ -14,6 +13,22 @@ $(document).ready(function(){
 	where += 1;
 	
 	var topReached = Math.max(completed, where);
+	
+	
+	$("#btn_help").on('click', function(event){
+		event.preventDefault();
+		
+		var tooltips = [];
+		$("[title]").each(function(){
+			if (!$(this).attr('class') || !$(this).attr('class').includes("nohelp")) {
+				tooltips.push($(this));
+			}
+		});
+		
+		for (var i=0; i<tooltips.length; i++) {
+			tooltips[i].tooltip("open");
+		}
+	});
 	
 	switch(topReached) {
 	case -1:
@@ -43,6 +58,12 @@ $(document).ready(function(){
 		$("#head4").attr('class', "headActive");
 		$("#head5").attr('class', "headActive");
 	}
+
+	$("#head1").addClass("nohelp");
+	$("#head2").addClass("nohelp");
+	$("#head3").addClass("nohelp");
+	$("#head4").addClass("nohelp");
+	$("#head5").addClass("nohelp");
 	
 	if (completed >= 0) 
 		$("#head"+where.toString()).attr('class', "headCurrent");
@@ -52,7 +73,7 @@ $(document).ready(function(){
 		});
 		$("#where").remove();
 	}
-	
+		
 	var form = $("#mainForm");
 	
 	if (headIsActive("#head1")) {

@@ -1,5 +1,5 @@
-var TO_RECOMMEND = 4;
-var MAX_DISTANCE = 50;
+var TO_RECOMMEND = 5;
+var MAX_DISTANCE = 80;
 
 var countSentences = function(text){
 	if (text.length === 0) return 0;
@@ -106,7 +106,7 @@ var recommend = function(parID, clusters, maxSentences) {
 			}
 			
 			
-			toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + "." + s1.sID + "op\" " +
+			toAdd = "<p class=\"" + parID + "-sentence nohelp\" id=\"" + parID + "." + clusters[i].cID + "." + s1.sID + "op\" " +
 					"style=cursor:pointer " +
 					"title=\"Click to append to the text, right-click to remove or see alternatives.\">";
 			toAdd += s1.sValue;
@@ -120,7 +120,7 @@ var recommend = function(parID, clusters, maxSentences) {
 				lastCluster = Math.min(clusters.length, lastCluster+1);
 				continue;
 			} else if (s1 === null) {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + "." + s2.sID + "ot\" " +
+				toAdd = "<p class=\"" + parID + "-sentence nohelp\" id=\"" + parID + "." + clusters[i].cID + "." + s2.sID + "ot\" " +
 						"style=cursor:pointer " +
 						"title=\"Click to append to the text, right-click to remove or see alternatives.\">";
 				toAdd += s2.sValue;
@@ -128,7 +128,7 @@ var recommend = function(parID, clusters, maxSentences) {
 				sentenceDiv.append(toAdd);
 				s2.sRecommended = true;
 			} else if (s2 === null) {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + "." + s1.sID + "op\" " +
+				toAdd = "<p class=\"" + parID + "-sentence nohelp\" id=\"" + parID + "." + clusters[i].cID + "." + s1.sID + "op\" " +
 						"style=cursor:pointer " +
 						"title=\"Click to append to the text, right-click to remove or see alternatives.\">";
 				toAdd += s1.sValue;
@@ -136,7 +136,7 @@ var recommend = function(parID, clusters, maxSentences) {
 				sentenceDiv.append(toAdd);	
 				s1.sRecommended = true;					
 			} else if (s1.sDistance < s2.sDistance) {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + "." + s1.sID + "op\" " +
+				toAdd = "<p class=\"" + parID + "-sentence nohelp\" id=\"" + parID + "." + clusters[i].cID + "." + s1.sID + "op\" " +
 						"style=cursor:pointer " +
 						"title=\"Click to append to the text, right-click to remove or see alternatives.\">";
 				toAdd += s1.sValue;
@@ -144,7 +144,7 @@ var recommend = function(parID, clusters, maxSentences) {
 				sentenceDiv.append(toAdd);	
 				s1.sRecommended = true;			
 			} else {
-				toAdd = "<p class=\"" + parID + "-sentence\" id=\"" + parID + "." + clusters[i].cID + "." + s2.sID + "ot\" " +
+				toAdd = "<p class=\"" + parID + "-sentence nohelp\" id=\"" + parID + "." + clusters[i].cID + "." + s2.sID + "ot\" " +
 						"style=cursor:pointer " +
 						"title=\"Click to append to the text, right-click to remove or see alternatives.\">";
 				toAdd += s2.sValue;
@@ -208,7 +208,7 @@ $(document).ready(function() {
 							}
 							
 							
-							var newPar = "<p class=\"$paragraph.getId()-sentence\" id=\"" + newID + "\" " +
+							var newPar = "<p class=\"$paragraph.getId()-sentence nohelp\" id=\"" + newID + "\" " +
 									"style=cursor:pointer " +
 									"title=\"Click to append to the text, right-click to remove or see alternatives.\">";
 							newPar += newVal;
@@ -280,7 +280,7 @@ $(document).ready(function() {
 				}
 			},
 			close : function() {
-				var toAdd = "<p class=\"$paragraph.getId()-sentence\" id=\"" + sentID + "\" " +
+				var toAdd = "<p class=\"$paragraph.getId()-sentence nohelp\" id=\"" + sentID + "\" " +
 						"style=cursor:pointer " +
 						"title=\"Click to append to the text, right-click to remove or see alternatives.\">";
 				toAdd += value + "</p>";
@@ -299,8 +299,9 @@ $(document).ready(function() {
 			
 			var clusterID = parseInt(thisID.split(".")[1]);
 			var type = thisID.split(".")[2];
-			var pos = parseInt(thisID.split(".")[2].split("o")[0]);
+			var sID = parseInt(thisID.split(".")[2].split("o")[0]);
 			var cluster = getClusterByID(clusters${paragraph.getId()}, clusterID);
+			var pos = getSentencePosition(cluster, sID, type);
 			
 			/*Mark the sentence as already chosen*/
 			if (type.endsWith('p')) {
@@ -343,6 +344,41 @@ $(document).ready(function() {
 			/*fill the missing spaces*/
 			recommend("$paragraph.getId()", clusters${paragraph.getId()}, toRecommend);
 		}
+	});
+	
+	$("#$paragraph.getId()-alterBtn").on('click', function(event) {
+		event.preventDefault();
+		
+		/*For each suggested sentence*/
+		$(".$paragraph.getId()-sentence").each(function(){
+			var thisID = $(this).attr('id');
+			
+			var clusterID = parseInt(thisID.split(".")[1]);
+			var type = thisID.split(".")[2];
+			var sID = parseInt(thisID.split(".")[2].split("o")[0]);
+			var cluster = getClusterByID(clusters${paragraph.getId()}, clusterID);
+			var pos = getSentencePosition(cluster, sID, type);
+			
+			/*Mark the sentence as already chosen*/
+			if (type.endsWith('p')) {
+				cluster.cOpeningSentences[pos].sChosen = true;
+			} else {
+				cluster.cOtherSentences[pos].sChosen = true;	
+			}
+			
+			/*Mark the cluster as inactive and increase its distance*/
+			cluster.cActive = false;
+			cluster.cDistance += 20;
+			
+			/*Remember not to suggest this sentence again if evaluation is changed*/
+			$("#$paragraph.getId()-hidden").val($("#$paragraph.getId()-hidden").val() + thisID + ' ');
+			
+			/*Remove the sentence from the choice*/
+			$(this).remove();
+		});
+		
+		/*Recommend new sentences*/
+		recommend("$paragraph.getId()", clusters${paragraph.getId()}, TO_RECOMMEND);
 	});
 	#end
 	

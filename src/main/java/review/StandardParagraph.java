@@ -25,14 +25,40 @@ public class StandardParagraph extends Paragraph {
 	}
 
 	@Override
-	public void removeSentence(int clusterID, String type, int pos) {
-		SentenceCluster cluster = sentences.get(clusterID);
+	public void removeSentence(int clusterID, String type, int sentenceID) {
+		SentenceCluster cluster = null;
+		for (SentenceCluster c : sentences) {
+			if (c.getClusterId() == clusterID) {
+				cluster = c;
+			}
+		}
+		
+		int pos = getSentencePosition(cluster, type, sentenceID);
 		
 		if (type.endsWith("p")) {
 			cluster.getOpeningSentences().remove(pos);
 		} else {
 			cluster.getOtherSentences().remove(pos);
 		}
+	}
+
+	private int getSentencePosition(SentenceCluster cluster, String type, int sentenceID) {
+		if (type.endsWith("p")) {
+			for (int i=0; i<cluster.getOpeningSentences().size(); i++) {
+				if (cluster.getOpeningSentences().get(i).getSentenceID() == sentenceID) {
+					return i;
+				}
+			}
+		} else {
+			for (int i=0; i<cluster.getOtherSentences().size(); i++) {
+				if (cluster.getOtherSentences().get(i).getSentenceID() == sentenceID) {
+					return i;
+				}
+			}
+		}
+		
+		
+		return -1;
 	}
 
 }

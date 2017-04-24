@@ -23,6 +23,9 @@
 		<div class="col col-lg-4" id="$entry.getKey().getId()-choice">
 			<p style="font-weight:bold">Choose sentences:</p>
 		</div>
+		<div class="col col-lg-4" id="$entry.getKey().getId()-alter">
+			<button class="btn" id="$entry.getKey().getId()-alterBtn">Dismiss these sentences and find alternatives</button>
+		</div>
 	</div>
 	<input type="text" class="form-control" id="$entry.getKey().getId()-hidden" name="$entry.getKey().getId()-hidden">
 	</div>
@@ -32,4 +35,5 @@
 	
 	<button class="btn btn-primary" id="btn-back">Back</button>
 	<button class="btn btn-primary" id="btn-next">Next</button>
+	<button class="btn btn-primary" id="btn_help" style="float:right">Show help</button>	
 </form>

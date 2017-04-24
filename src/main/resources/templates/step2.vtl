@@ -2,7 +2,7 @@
   	<input type="text" class="form-control" id="where" name="where" value='$where'>   
 
 #if (!$paragraphs.isEmpty())
-<h1 title="This evaluation will affect the choice of sentences recommended in the next step">Please evaluate the thesis:</h1>
+<h1 title="This evaluation will affect the choice of sentences recommended in the next step. You will be able to return here at any time.">Please evaluate the thesis:</h1>
 <div id="accordion">
 	#foreach ($paragraph in $paragraphs)
 		<h3>$paragraph.getTitle()</h3>
@@ -93,6 +93,7 @@
 	<br>
    	<button type="submit" class="btn btn-primary" id="btn_back">Back</button>
 	<button class="btn btn-primary" type="submit" id="btn_submit">Next</button>
+	<button class="btn btn-primary" id="btn_help" style="float:right">Show help</button>	
 </form>	
 
 	

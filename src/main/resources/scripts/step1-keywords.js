@@ -11,6 +11,7 @@ $(document).ready(function(){
 	$("#$paragraph.getId()").prop("checked", true);
 	#end
 	
+	
 	//			TODO: Add used keywords
 	
 	#foreach($type in $kwtypes)

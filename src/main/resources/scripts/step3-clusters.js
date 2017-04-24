@@ -1,4 +1,4 @@
-var op, ot, k;
+var k;
 //var finalGrade = ${finalGrade};
 
 var getClusterByID = function(clusters, ID) {
@@ -9,6 +9,22 @@ var getClusterByID = function(clusters, ID) {
 	}
 	
 	return null;
+}
+
+var getSentencePosition = function(cluster, senID, type) {
+	if (type.endsWith('p')) {
+		for (var i=0; i<cluster.cOpeningSentences.length; i++) {
+			if (cluster.cOpeningSentences[i].sID == senID)
+				return i;
+		}
+	} else {
+		for (var i=0; i<cluster.cOtherSentences.length; i++) {
+			if (cluster.cOtherSentences[i].sID == senID)
+				return i;
+		}		
+	}
+	
+	return -1;
 }
 
 var completeGrade = function(sentence, eval) {
@@ -39,8 +55,6 @@ var clusters${entry.getKey().getId()} = [];
 k = 0;	
 
 	#foreach($cluster in $entry.getValue())
-	op = 0;
-	ot = 0;
 	clusters${entry.getKey().getId()}.push({
 		cID : $cluster.getClusterId(),
 		cPosition : $cluster.getCentroidPosition(),
@@ -56,13 +70,12 @@ k = 0;
 			value = completeGrade(value, $finalGrade);
 		}
 		clusters${entry.getKey().getId()}[k].cOpeningSentences.push({
-			sID : op,
+			sID : $sentence.getSentenceID(),
 			sRecommended : false,
 			sChosen : false,
 			sDistance : $sentence.getDistance(),
 			sValue : value
 		});
-		op++;
 		#end
 		
 		#foreach($sentence in $cluster.getOtherSentences())
@@ -71,13 +84,12 @@ k = 0;
 			value = completeGrade(value, $finalGrade);
 		}
 		clusters${entry.getKey().getId()}[k].cOtherSentences.push({
-			sID : ot,
+			sID : $sentence.getSentenceID(),
 			sRecommended : false,
 			sChosen : false,
 			sDistance : $sentence.getDistance(),
 			sValue : value
 		});
-		ot++;
 		#end
 	k++;	
 	#end
