@@ -1,0 +1,39 @@
+<form action="/review" method="post" id="mainForm">
+  	<input type="text" class="form-control" id="where" name="where" value='$where'>   
+	
+	<h1>$title</h1>
+	<div id="accordion">
+	#foreach ($entry in $recommended.entrySet())
+	<h4>$entry.getKey().getTitle()</h4>
+	<div>
+	<div class="row" id="$entry.getKey().getId()-row">
+		<br>
+		<div class="col col-lg-6">
+		  	<div class="form-group">
+		   		<label for="$entry.getKey().getId()-textarea">Final text:</label>
+		   		<textarea class="form-control" id="$entry.getKey().getId()-textarea" name="$entry.getKey().getId()" rows="6"></textarea>
+		 	</div>
+		</div>
+		<div class="col col-lg-6" id="$entry.getKey().getId()-orderWhole">
+			<p style="font-weight:bold">Drag sentences to change order, click to edit or remove:</p>
+			<div id="$entry.getKey().getId()-order"></div>
+		</div>
+	</div>
+	<div class="row" id="$entry.getKey().getId()-row2">
+		<div class="col col-lg-4" id="$entry.getKey().getId()-choice">
+			<p style="font-weight:bold">Choose sentences (Click to append to the text, right-click to remove or see alternatives):</p>
+		</div>
+		<div class="col col-lg-4" id="$entry.getKey().getId()-alter">
+			<button class="btn" id="$entry.getKey().getId()-alterBtn">Dismiss these sentences and find alternatives</button>
+		</div>
+	</div>
+	<input type="text" class="form-control" id="$entry.getKey().getId()-hidden" name="$entry.getKey().getId()-hidden">
+	</div>
+	#end
+	</div>
+	<br>
+	
+	<button class="btn btn-primary" id="btn-back">Back</button>
+	<button class="btn btn-primary" id="btn-next">Next</button>
+	<button class="btn btn-primary" id="btn_help" style="float:right">Show help</button>	
+</form>

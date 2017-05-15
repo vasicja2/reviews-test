@@ -1,0 +1,34 @@
+#headContainer {
+	margin-top : 3%;
+	margin-bottom : 5%;
+}
+
+.headCurrent {
+	display : inline;
+	width : 15%;
+	height : 20%;
+	color : white;
+	background: rgba(6, 128, 249, 1);
+	padding: 1%;
+	margin-left : 1%;
+}
+
+.headActive {
+	display : inline;
+	width : 15%;
+	height : 20%;
+	color : white;
+	background: rgba(0, 64, 128, 1);
+	padding: 1%;
+	margin-left : 1%;	
+    cursor : pointer;
+}
+
+.headInactive {
+	display: inline;
+	width: 15%;
+	height: 20%;
+	background: rgba(0, 64, 128, 0.3);
+	padding: 1%;
+	margin-left : 1%;
+}

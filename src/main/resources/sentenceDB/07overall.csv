@@ -1,0 +1,32 @@
+Cluster;Position;Attr0;Value
+0;1;70.0;04fulfilment.1.90~04fulfilment.2.90~The __ is very useful and well done.
+0;1;70.0;04fulfilment.1.100~04fulfilment.2.90~The student managed to fulfill the assignment of the thesis completely and with high quality.
+1;1;70.0;05activity.1.90~05activity.3.90~Considering all of the above, it has been a great experience to work with __.
+2;1;70.0;04fulfilment.2.90~This thesis met my expectation in content and quality.
+3;1;80.0;The thesis fulfils all requirements.
+3;1;80.0;The student deserves a high grading for his activity.
+3;1;80.0;The author of the thesis did a very good job.
+3;1;80.0;The student managed to deal with the assignment on a high level and meet the criteria requested.
+3;2;70.0;However, mentioned shortcomings are not crucial for the final outcome of the thesis.
+4;1;85.0;01topic.1.90~The entire work is very interesting.
+5;1;90.0;05activity.1.90~The student was among the best I have ever worked with.
+6;1;-1.0;05activity.1.90~Most decisions have been taken by the student.
+6;1;-1.0;05activity.1.90~The author evidently invested a significant amount of effort to meet each task in the assignment.
+7;1;-1.0;04fulfilment.1.90~03formal.1.45~03formal.3.50~03formal.4.50~The results are negatively influenced by the written part of the text.
+8;1;-1.0;03formal.1.90~03formal.2.90~03formal.3.90~03formal.4.90~The formal level of the thesis is excellent.
+9;1;50.0;I recommend this thesis for defence with grade $g.
+9;1;50.0;I recommend the thesis for defense, and I propose evaluation $g.
+9;1;50.0;Due to __, I think that a grade $g is appropriate.
+9;1;50.0;Given that what has been said above, this thesis deserves the grade $g.
+9;1;50.0;Considering all comments above, I recommend the thesis for defense with grade $g.
+9;1;50.0;The thesis complies with the compulsory requirements, therefore I recommend it for defence with grade $g.
+9;1;50.0;Considering the comments above, I recommend grade $g.
+10;1;-49.0;Considering what has been said above, I evaluate this thesis with grade F and I do not recommend it for defence.
+10;1;-49.0;From my point of view I must advise the student to rework this thesis.
+10;1;-49.0;I grade this thesis with F and I do not recommend it for defence.
+11;2;50.0;04fulfilment.3.0~While having no publishable value, it deserves grade $g.
+12;1;50.0;01topic.1.100~01topic.2.90~04fulfilment.3.85~The topic was demanding, original, and the results will be important for __.
+13;1;50.0;03formal.1.40~03formal.2.40~03formal.3.50~03fomal.4.40~Even with formal flaws, I advise the grade $g.
+14;1;-1.0;04fulfilment.1.100~The student successfully fulfilled the assignment.
+15;1;80.0;04fulfilment.1.100~05activity.1.100~Over the process of supervising this thesis, I have been consistently impressed with the student's drive and achievement.
+16;1;-49.0;02research.5.0~Due to the fact that this thesis violates the copyright ethics, I do not recommend it for defence.

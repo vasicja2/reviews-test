@@ -1,0 +1,24 @@
+<form action="/save" method="POST" id="mainForm">
+  	<input type="text" class="form-control" id="where" name="where" value='$where'>   
+	<h2 title="You can edit the title, reviewer's name, author's name and the text of any paragraph. You will not lose any changes if you jump to some of the previous steps." contenteditable="true" id="title-editable">$title</h2>
+	<input type="text" class="form-control" id="reviewTitle" name="title" value="$title">
+	
+	<h3 contenteditable="true" id="author-editable">$author</h3>
+	<input type="text" class="form-control" id="author" name="author" value="$author">
+
+	<h3>$type reviewed by:</h3>
+	<h3 contenteditable="true" id="reviewer-editable">$reviewer</h3>
+	<input type="text" class="form-control" id="reviewer" name="reviewer" value="$reviewer">
+	#foreach ($paragraph in $paragraphs)
+	<div class="row">
+		<div class="col col-lg-9">
+			<h3 class="nohelp" title="Feel free to edit the text before you save your review.">$paragraph.getTitle()</h3>
+			<p contenteditable="true" id="$paragraph.getId()-editable">$paragraph.getText()</p>
+			<textarea class="form-control" id="$paragraph.getId()-textarea" name="$paragraph.getId()" rows="6"></textarea>
+		</div>	
+	</div>
+	#end
+	<button class="btn btn-primary" id="btn_back">Back</button>
+	<button class="btn btn-primary" id="btn_download">Download as a TEX file</button>
+	<button class="btn btn-primary" id="btn_help" style="float:right">Show help</button>	
+</form>
