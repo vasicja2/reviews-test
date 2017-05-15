@@ -1,1 +1,1 @@
-web: java -jar target/reviewsTest.jar
+web: java -jar target/reviewEditor.jar
